@@ -1,5 +1,7 @@
 name: Build
-on: [push, workflow_dispatch]
+on:
+  push:
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,8 +12,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - uses: android-actions/setup-android@v3
-      - run: chmod +x gradlew || true
-      - run: ./gradlew :app:assembleRelease --no-daemon
+      - run: chmod +x gradlew
+      - run: ./gradlew :app:assembleRelease
       - uses: actions/upload-artifact@v4
         with:
           name: fftoolkit-apk
