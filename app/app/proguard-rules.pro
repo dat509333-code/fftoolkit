@@ -1,0 +1,2 @@
+-keep class com.fftoolkit.** { *; }
+-dontwarn org.jetbrains.annotations.**
